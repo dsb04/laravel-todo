@@ -94,7 +94,7 @@ class TodoController extends Controller
         $response = $this->service->destroy($todo->id, $user->id);
 
         return redirect('/dashboard')->with(
-            $response['success'],
+            $response['success'] ? 'success' : 'error',
             $response['message']
         );
     }
