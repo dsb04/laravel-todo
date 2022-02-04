@@ -91,6 +91,7 @@ class TodoController extends Controller
      */
     public function destroy(Todo $todo)
     {
+        $user=auth()->user();
         $response = $this->service->destroy($todo->id, $user->id);
 
         return redirect('/dashboard')->with(
