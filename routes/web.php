@@ -25,5 +25,5 @@ Route::middleware('auth')->group(function() {
     Route::get('dashboard', [TodoController::class, 'index'])->name('dashboard');
     Route::post('/todos', [TodoController::class, 'store']);
     Route::get('/todos/{todo}/complete', [TodoController::class, 'complete']);
-    Route::get('/todos/{todo}', [TodoController::class, 'destroy']);
+    Route::get('/todos/delete/{todo}', [TodoController::class, 'destroy']);
 });
