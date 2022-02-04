@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use repository;
 use App\Models\Todo;
 use App\Services\TodoService;
 use App\Repositories\TodoRepository;
@@ -51,8 +52,8 @@ class TodoController extends Controller
 
         $attributes = $request->only([
             'title',
-            'description',
-            'color'
+            'color',
+            'is_complete'
         ]);
 
         $attributes['user_id'] = $user->id;
