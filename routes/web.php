@@ -23,7 +23,7 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware('auth')->group(function() {
     Route::get('dashboard', [TodoController::class, 'index'])->name('dashboard');
-    Route::post('/todos/{todo}/edit', [TodoController::class, 'edit']);
+    Route::put('/todos/{todo}/edit', [TodoController::class, 'edit']);
     Route::post('/todos/{todo}/store', [TodoController::class, 'store']);
     Route::get('/todos/{todo}/complete', [TodoController::class, 'complete']);
     Route::delete('/todos/{todo}', [TodoController::class, 'destroy']);
