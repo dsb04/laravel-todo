@@ -13,7 +13,7 @@ class UpdateTodoRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return $this->todo->user_id === $this->user()->id;
     }
 
     /**
