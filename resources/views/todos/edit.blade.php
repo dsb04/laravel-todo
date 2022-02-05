@@ -7,10 +7,9 @@
     <title>Editar Tarefa</title>
 </head>
 <body>
-    <a href="/todos/{todo}/{{$todo->id}}">
-    <form action="/product/update/{{$todo->id}}" method="POST">
+    <form action="/todos/{todo}" method="PUT">
         @csrf
-        <input type="text" name="title" pleaceholder="Preço" value="{{$todo->title}}">
+        <input type="text" name="title" value="{{$todo->title}}">
     </form>
 </body>
 </html>
