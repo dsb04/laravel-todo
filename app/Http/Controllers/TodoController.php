@@ -7,6 +7,7 @@ use App\Models\Todo;
 use App\Services\TodoService;
 use App\Repositories\TodoRepository;
 use App\Http\Requests\StoreTodoRequest;
+use App\Models\User;
 
 class TodoController extends Controller
 {
@@ -38,6 +39,16 @@ class TodoController extends Controller
         $todos = $this->repository->findWhere(['user_id' => $user->id]);
 
         return view('dashboard', compact('user', 'todos'));
+    }
+
+    public function edit($id)
+    {
+        $user = auth()->user();
+        $todo = User::find($id);
+        if ($todo->user_id != $user->id){
+            abort(404);
+        }
+        return view('todo.edit', compact('todo'));
     }
 
     /**
